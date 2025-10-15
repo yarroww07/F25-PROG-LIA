@@ -14,15 +14,16 @@ for index, row in Sleep_Data.iterrows():
     condition = row['Sleep Disorder']
     
     # Checking if a condition is applied to male or female
-    if condition != 'None':
+    # print(condition)
+    if condition == 'Sleep Apnea' or condition == 'Insomnia':
         if gender == 'Male':
             condition_count_male += 1
         elif gender == 'Female':
             condition_count_female += 1
 
 # TEST (keep as comment)
-# print(condition_count_female)
-# print(condition_count_male)
+print(condition_count_female)
+print(condition_count_male)
 
 # Creating a bar graph 
 # Variables
