@@ -29,7 +29,7 @@ for index, row in Sleep_Data.iterrows():
 categories = ['Male', 'Female']
 values = [condition_count_male, condition_count_female]
 
-plt.bar(categories, values)
+plt.bar(categories, values, color=['blue','pink'])
 plt.title('Test')
 plt.xlabel('Gender')
 plt.ylabel('Number of People with Sleep Disorders')
