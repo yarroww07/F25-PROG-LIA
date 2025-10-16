@@ -15,6 +15,7 @@ y = Sleep_Data["Sleep Duration"]
 #GRAPHING
 
 plt.figure(figsize=(16,6))
+plt.title('Average sleep duration per occupation')
 sns.barplot(Sleep_Data, x = 'Occupation', y = 'Sleep Duration', palette= 'flare')
 plt.grid()
 
