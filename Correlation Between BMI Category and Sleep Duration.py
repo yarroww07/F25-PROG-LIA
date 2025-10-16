@@ -5,11 +5,13 @@ Sleep_Data = pd.read_csv("Sleep_health_and_lifestyle_dataset.csv")
  
 #DEFINING MY VARIABLES
 
+Sleep_Data['BMI Category'] = Sleep_Data['BMI Category'].replace({'Normal Weight':'Normal'})
 x = Sleep_Data["BMI Category"]
 y = Sleep_Data["Sleep Duration"]
 
 
 #GRAPHING
+
 
 plt.bar(x, y, color='purple')
 
