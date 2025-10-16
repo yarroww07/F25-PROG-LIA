@@ -9,11 +9,12 @@ print(Sleep_Data.columns)
 
 x = Sleep_Data["Occupation"]
 y = Sleep_Data["Sleep Duration"]
-colors = sns.cubehelix_palette()
+
 
 
 #GRAPHING
-plt.figure(figsize=(16,6))
 
+plt.figure(figsize=(16,6))
 sns.barplot(Sleep_Data, x = 'Occupation', y = 'Sleep Duration', palette= 'flare')
+plt.grid()
 
