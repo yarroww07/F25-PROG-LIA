@@ -13,7 +13,7 @@ y = Sleep_Data["Sleep Duration"]
 #GRAPHING
 
 
-plt.bar(x, y, color='purple')
+plt.bar(x, y, color='darkmagenta')
 
 plt.title ('Correlation Between BMI Category and Sleep Duration')
 plt.xlabel('BMI Category')
