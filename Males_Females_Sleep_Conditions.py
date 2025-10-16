@@ -1,6 +1,8 @@
 # Imports
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
 
 Sleep_Data = pd.read_csv("Sleep_health_and_lifestyle_dataset.csv")
 
@@ -21,18 +23,27 @@ for index, row in Sleep_Data.iterrows():
         elif gender == 'Female':
             condition_count_female += 1
 
-# TEST (keep as comment)
-print(condition_count_female)
-print(condition_count_male)
+# MAKING THE PIE CHARTS
+# Total counts
+count_males = (Sleep_Data['Gender'] == 'Male').sum()
+count_females = (Sleep_Data['Gender'] == 'Female').sum()
 
-# Creating a bar graph 
 # Variables
-categories = ['Male', 'Female']
-values = [condition_count_male, condition_count_female]
+labels_males = ['Males Without Sleep Disorder', 'Males with Sleep Disorder']
+values_males = [count_males, condition_count_male]
+labels_females = ['Females Without Sleep Disorder', 'Females with Sleep Disorders']
+values_females = [count_females, condition_count_female]
 
-plt.bar(categories, values, color=['blue','pink'])
-plt.title('Test')
-plt.xlabel('Gender')
-plt.ylabel('Number of People with Sleep Disorders')
-plt.grid()
+# Subplot 1
+plt.subplot(1,2,1)
+plt.pie(values_males, labels = labels_males, colors = ('paleturquoise','darkslategrey'))
+plt.title('Proportion of Men with Sleep Disorders')
+
+# Subplot 2
+plt.subplot(1,2,2)
+plt.pie(values_females, labels = labels_females, colors = ('firebrick', 'lightcoral'))
+plt.title('Proportions of Females with Sleep Disorders')
+
+# Plot Display
+plt.tight_layout()
 plt.show()
