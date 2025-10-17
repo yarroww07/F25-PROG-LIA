@@ -1,3 +1,8 @@
+#CORRELATION BETWEEN BMI CATEGORIES AND SLEEP DURATION
+#BY SARAH MEGHDIR
+#BAR GRAPH 
+
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
