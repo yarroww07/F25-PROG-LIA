@@ -1,4 +1,5 @@
-#Meriem : This  code provides a proportion between the diferrent blood levels between all individuals in the dataset.
+#Meriem 
+# Description: This  code provides a proportion between the diferrent blood levels between all individuals in the dataset.
 import pandas as pd
 import matplotlib.pyplot as plt
 
