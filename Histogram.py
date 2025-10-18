@@ -1,3 +1,5 @@
+# Meriem
+# Description: Distribution of the daily steps taking by the sampled indivifuals, in order to understand their activity level.
 import pandas as pd
 import matplotlib.pyplot as plt
 
