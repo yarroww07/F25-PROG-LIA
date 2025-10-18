@@ -1,3 +1,4 @@
+#Meriem : This  code provides a proportion between the diferrent blood levels between all individuals in the dataset.
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -13,7 +14,8 @@ low_blood_pressure = 0
 for index, row in Sleep_Data.iterrows():
     blood_pressure = row['Blood Pressure']
     
-    systolic = int(blood_pressure.split('/')[0])
+    #The value in the column are strings, we have to change them into integers   
+    systolic = int(blood_pressure.split('/')[0]) 
     diastolic = int(blood_pressure.split('/')[1])
     
     if systolic == 120 and diastolic == 80:
@@ -23,7 +25,7 @@ for index, row in Sleep_Data.iterrows():
     else:
         low_blood_pressure += 1
         
-# Making of pir chart
+# Making of pie chart
 labels = ['Low Blood Pressure', 'Normal Blood Pressure', 'High Blood Pressure']
 variables = [low_blood_pressure, normal_blood_pressure, high_blood_pressure]
 colors = ['skyblue', 'lightgreen', 'darkred']
