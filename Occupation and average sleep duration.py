@@ -1,3 +1,5 @@
+
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -17,5 +19,7 @@ y = Sleep_Data["Sleep Duration"]
 plt.figure(figsize=(16,6))
 plt.title('Average sleep duration per occupation')
 sns.barplot(Sleep_Data, x = 'Occupation' , y = 'Sleep Duration' , palette= 'flare')
-plt.grid()
+plt.grid(axis='y')
+plt.tight_layout()
+plt.show()
 
