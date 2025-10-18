@@ -26,7 +26,7 @@ for index, row in Sleep_Data.iterrows():
 # Making of pir chart
 labels = ['Low Blood Pressure', 'Normal Blood Pressure', 'High Blood Pressure']
 variables = [low_blood_pressure, normal_blood_pressure, high_blood_pressure]
-colors = ['skyblue', 'lightgreen', 'salmon']
+colors = ['skyblue', 'lightgreen', 'darkred']
 
 plt.pie(variables, labels=labels, colors=colors)
 plt.title('Proportions of blood pressure levels in sample')
