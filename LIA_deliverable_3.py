@@ -1,7 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
 
-Sleep_Data = pd.read_csv("Sleep_health_and_lifestyle_dataset.csv")
+df = pd.read_csv("Sleep_health_and_lifestyle_dataset.csv")
 
 
                                     ### Prelimenary steps ###
@@ -21,4 +23,25 @@ Sleep_Data = pd.read_csv("Sleep_health_and_lifestyle_dataset.csv")
 
 
 ## c ##
-print(Sleep_Data.isnull())
+#print(df.isnull())
+
+
+
+
+
+                                  ### Univariate Non-graphical EDA ###
+
+numeric_df = df.select_dtypes(include=np.number)
+
+for col in numeric_df.columns:
+    print(col) 
+    print('mean:', df[col].mean())
+    print('median:', df[col].median())
+    print('mode:', df[col].mode())
+    print('standard deviation:', df[col].std())
+    print('variance:', df[col].var())
+    print('skewness', df[col].skew())
+    print('kurtosis:', df[col].kurt())
+    print('quartiles',df[col].quantile([0.25, 0.5, 0.75]))
+    print('')
+    print('')
