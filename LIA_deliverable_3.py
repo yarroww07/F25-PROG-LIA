@@ -81,7 +81,8 @@ for col in categorical_df.columns:
 
 
                               ### Univariate Graphical EDA ###
-                              
+
+df = pd.read_csv("Sleep_health_and_lifestyle_dataset.csv")                        
 for col in ['Sleep Duration', 'Quality of Sleep', 'Age']:
     sns.displot(data = df,
                 x= col,
@@ -107,3 +108,23 @@ for col in ['Stress Level', 'Heart Rate']:
 
                            ### Multivariate Non-Graphical EDA ###
                               
+
+# ASK; Are these three crosstabs enough or should i do three without normalize, then one normalize...
+
+# First Relationship: Occupation and Sleep Disorder (with percentages over the total values)
+pd.crosstab(df['Occupation'], df['Sleep Disorder'], normalize=True)
+
+# Second Relationship:
+pd.crosstab(df['BMI Category'], df['Sleep Disorder'])
+
+# Third Relationship: Gender and Sleep Disorder (with percentages over ROWS only)
+pd.crosstab(df['Gender'], df['Sleep Disorder'], normalize='index')
+
+# Three-way frequency table; BMI was added at first, but removed because it did not give a clean look
+pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']])
+
+                            
+                            ### Multivariate Graphical EDA ###
+
+
+
