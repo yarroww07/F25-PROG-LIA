@@ -65,3 +65,31 @@ for col in categorical_df.columns:
     print('unique values:', df[col].nunique())
     print('')
     print('')
+    
+    
+    
+
+
+                              ### Univariate Graphical EDA ###
+                              
+for col in ['Sleep Duration', 'Quality of Sleep', 'Age']:
+    sns.displot(data = df,
+                x= col,
+                hue = 'Gender',
+                multiple = 'dodge',
+                common_norm = False,
+                kde = True)  
+
+for col  in ['Daily Steps', 'Physical Activity Level']:
+    sns.displot(data = df,
+                x= col,
+                hue = 'Sleep Disorder',
+                kind = 'ecdf')  
+    
+for col in ['Stress Level', 'Heart Rate']:
+    sns.displot(data = df,
+                x= col,
+                hue = 'Occupation',
+                multiple = 'stack',
+                discrete = True)         
+                              
