@@ -6,28 +6,38 @@ import seaborn as sns
 df = pd.read_csv("Sleep_health_and_lifestyle_dataset.csv")
 
 
-                                    ### Prelimenary steps ###
-## a ##                                    
-#print(Sleep_Data.head())
+#PRELIMINARY STEPS
+#CODED BY SARAH MEGHDIR
 
-#print(Sleep_Data.shape)
+#a) INITIAL DATA INSPECTION                                 
+print("Head:")
+print(df.head())
 
-#print(Sleep_Data.info())
+print("Shape:")
+print(df.shape)
 
-#print(Sleep_Data.describe())
+print("Info:")
+print(df.info())
 
+print("Description:")
+print(df.describe())
 
-## b ##
-#Duplicates = Sleep_Data.duplicated()
-#print(Duplicates.value_counts())
+#b) Handle duplicate entries
+print("Number of dupilcates:")
+Duplicates = df.duplicated()
+print(Duplicates.value_counts())
+#THERE ARE NO DUPLICATES THEREFORE NO NEED TO DROP ANY ROWS
 
+#c) Identify and manage missing values
+print("Number of null values:")
+print(df.isnull().sum())
+df['Sleep Disorder'] = df['Sleep Disorder'].fillna("No disorder")
+print(df.info())
+print(df['Sleep Disorder'].value_counts())
+#In the column "Sleep disorder", 219 people had no sleep disorder, fitting into the category "None". Using isnull, these values were read as null values. To avoid confusion, I replaced them by a new category: "No disorder".
 
-## c ##
-#print(df.isnull())
-
-
-
-
+#d) Correct data types and formats
+print()
 
                                   ### Univariate Non-graphical EDA ###
 
