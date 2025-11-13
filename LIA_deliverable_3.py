@@ -31,7 +31,12 @@ df = pd.read_csv("Sleep_health_and_lifestyle_dataset.csv")
 
                                   ### Univariate Non-graphical EDA ###
 
-numeric_df = df.select_dtypes(include=np.number)
+numeric_df = df.select_dtypes(include = np.number)
+
+print('Numerical Values')
+print('')
+print('')
+      
 
 for col in numeric_df.columns:
     print(col) 
@@ -43,5 +48,20 @@ for col in numeric_df.columns:
     print('skewness', df[col].skew())
     print('kurtosis:', df[col].kurt())
     print('quartiles',df[col].quantile([0.25, 0.5, 0.75]))
+    print('')
+    print('')
+    
+categorical_df = df.select_dtypes(exclude = np.number) 
+
+print('categorical Values')
+print('')
+print('')  
+
+for col in categorical_df.columns:
+    print(col)
+    print('frequency count:', df[col].value_counts())
+    print('proportion:', df[col].value_counts(normalize = True))
+    print('mode:', df[col].mode())
+    print('unique values:', df[col].nunique())
     print('')
     print('')
