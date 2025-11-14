@@ -127,7 +127,7 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']])
 
                          ### Multivariate Graphical EDA ###
 
-#6.1.
+# 6.1.
 
 #a)
 
@@ -139,7 +139,7 @@ sns.relplot(data = df,
             size = 'Daily Steps',
             col = 'Gender')
 
-plt.figure()
+plt.figure() # in order not to merge the two plots
 
 #c) Answers question 4 (age is the continuity variable here)
 sns.lineplot(data = df,
@@ -147,12 +147,32 @@ sns.lineplot(data = df,
              y = 'Sleep Duration',
              hue = 'Gender')
 
+plt.figure()
+
 #d)
 
 #e)                         
                          
                          
-                         
+# 6.2.  
+
+#a) Answers question 4
+sns.catplot(data = df,
+            x = 'Gender',
+            y = 'Quality of Sleep',
+            jitter = True)
+
+plt.figure()
+
+#b)
+
+#c) Answers question 4
+sns.catplot(data = df,
+            x = 'Sleep Disorder',
+            y = 'Heart Rate',
+            hue = 'Gender',
+            kind = 'swarm')
+                                   
                          
                          
                          
