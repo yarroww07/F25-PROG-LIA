@@ -208,14 +208,13 @@ plt.figure()
 
 #6.3. Visualizing bivariate distributions
 
-#a) Answers Question 5
+#a) Answers Question 5 # Added gender because it looks better with gender
 sns.displot(data = df, 
             y = 'Quality of Sleep',
             x = 'Daily Steps',
-            cmap = 'flare',
-            col = 'Gender',
-            kind = 'kde',
-            fill = True)
+            palette = 'flare',
+            hue = 'Gender',
+            kind = 'kde')
 
 
 
