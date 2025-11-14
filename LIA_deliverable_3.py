@@ -159,7 +159,7 @@ plt.figure()
 #a) Answers question 4
 sns.catplot(data = df,
             x = 'Gender',
-            y = 'Quality of Sleep',
+            y = 'Sleep Disorder',
             jitter = True)
 
 plt.figure()
