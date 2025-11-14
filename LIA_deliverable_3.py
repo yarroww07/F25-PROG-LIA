@@ -127,7 +127,7 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']])
 
                          ### Multivariate Graphical EDA ###
 
-# 6.1.
+# 6.1. Visualizing statistical relationships
 
 #a)
 
@@ -154,7 +154,7 @@ plt.figure()
 #e)                         
                          
                          
-# 6.2.  
+# 6.2. Visualizing categorical data 
 
 #a) Answers question 4
 sns.catplot(data = df,
@@ -172,6 +172,58 @@ sns.catplot(data = df,
             y = 'Heart Rate',
             hue = 'Gender',
             kind = 'swarm')
+
+plt.figure()
+
+#d)
+
+#e)
+
+#f)
+
+#g) Answers question 5
+g = sns.catplot(data = df,
+                x = 'Physical Activity Level',
+                y = 'Quality of Sleep',
+                kind = 'violin',
+                inner = None)
+
+sns.swarmplot(data = df,
+              x = 'Physical Activity Level',
+              y = 'Quality of Sleep',
+              color = 'k',
+              size = 3,
+              ax = g.ax)
+
+plt.figure()
+
+#g)
+
+#h)
+
+#i)
+
+#j)
+
+
+#6.3. Visualizing bivariate distributions
+
+#a) Answers Question 5
+sns.displot(data = df, 
+            y = 'Quality of Sleep',
+            x = 'Daily Steps',
+            cmap = 'flare',
+            col = 'Gender',
+            kind = 'kde',
+            fill = True)
+
+
+
+#b)
+
+#c) 
+
+
                                    
                          
                          
