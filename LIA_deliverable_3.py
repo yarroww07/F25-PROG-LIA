@@ -23,7 +23,7 @@ print("Description:")
 print(df.describe())
 
 #b) Handle duplicate entries
-print("Number of dupilcates:")
+print("Number of duplicates:")
 Duplicates = df.duplicated()
 print(Duplicates.value_counts())
 #THERE ARE NO DUPLICATES THEREFORE NO NEED TO DROP ANY ROWS
@@ -37,7 +37,8 @@ print(df['Sleep Disorder'].value_counts())
 #In the column "Sleep disorder", 219 people had no sleep disorder, fitting into the category "None". Using isnull, these values were read as null values. To avoid confusion, I replaced them by a new category: "No disorder".
 
 #d) Correct data types and formats
-print()
+df['BMI Category'] = df['BMI Category'].replace({'Normal Weight':'Normal'})
+#In the BMI category, two categories are used to indicate a BMI in a normal range; Normal and Normal Weight. Since both of them represent the same thing, I merged them into one category: Normal.
 
                                   ### Univariate Non-graphical EDA ###
 
@@ -81,7 +82,8 @@ for col in categorical_df.columns:
 
 
                               ### Univariate Graphical EDA ###
-                     
+
+                       
 for col in ['Sleep Duration', 'Quality of Sleep', 'Age']:
     sns.displot(data = df,
                 x= col,
@@ -121,9 +123,3 @@ pd.crosstab(df['Gender'], df['Sleep Disorder'], normalize='index')
 
 # Three-way frequency table; BMI was added at first, but removed because it did not give a clean look
 pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']])
-
-                            
-                            ### Multivariate Graphical EDA ###
-
-
-
