@@ -83,7 +83,7 @@ for col in categorical_df.columns:
 
                               ### Univariate Graphical EDA ###
 
-                       
+#### GOTTA REDO THIS PART #####                       
 for col in ['Sleep Duration', 'Quality of Sleep', 'Age']:
     sns.displot(data = df,
                 x= col,
