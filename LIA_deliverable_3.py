@@ -84,7 +84,7 @@ for col in categorical_df.columns:
                               ### Univariate Graphical EDA ###
 
 #### GOTTA REDO THIS PART #####                       
-for col in ['Sleep Duration', 'Quality of Sleep', 'Age']:
+for col in numeric_df:
     sns.displot(data = df,
                 x= col,
                 hue = 'Gender',
@@ -92,13 +92,13 @@ for col in ['Sleep Duration', 'Quality of Sleep', 'Age']:
                 common_norm = False,
                 kde = True)  
 
-for col  in ['Daily Steps', 'Physical Activity Level']:
+for col  in numeric_df:
     sns.displot(data = df,
                 x= col,
                 hue = 'Sleep Disorder',
                 kind = 'ecdf')  
     
-for col in ['Stress Level', 'Heart Rate']:
+for col in numeric_df:
     sns.displot(data = df,
                 x= col,
                 hue = 'Occupation',
