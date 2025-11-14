@@ -208,7 +208,7 @@ plt.figure()
 
 #6.3. Visualizing bivariate distributions
 
-#a) Answers Question 5 # Added gender because it looks better with gender
+#c) Answers Question 5 # Added gender because it looks better with gender
 sns.displot(data = df, 
             y = 'Quality of Sleep',
             x = 'Daily Steps',
@@ -218,9 +218,7 @@ sns.displot(data = df,
 
 
 
-#b)
 
-#c) 
 
 
                                    
