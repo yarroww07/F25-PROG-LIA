@@ -123,3 +123,31 @@ pd.crosstab(df['Gender'], df['Sleep Disorder'], normalize='index')
 
 # Three-way frequency table; BMI was added at first, but removed because it did not give a clean look
 pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']])
+
+
+                         ### Multivariate Graphical EDA ###
+
+#6.1.
+
+#a)
+
+#b) Answers question 5
+sns.relplot(data = df,
+            x = 'Quality of Sleep', 
+            y = 'Physical Activity Level',
+            hue = 'BMI Category',
+            size = 'Daily Steps',
+            col = 'Gender')
+
+#c) Answers question 4
+
+
+#d)
+
+#e)                         
+                         
+                         
+                         
+                         
+                         
+                         
