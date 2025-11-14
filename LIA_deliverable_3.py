@@ -139,8 +139,13 @@ sns.relplot(data = df,
             size = 'Daily Steps',
             col = 'Gender')
 
-#c) Answers question 4
+plt.figure()
 
+#c) Answers question 4 (age is the continuity variable here)
+sns.lineplot(data = df,
+             x = 'Age',
+             y = 'Sleep Duration',
+             hue = 'Gender')
 
 #d)
 
