@@ -106,6 +106,7 @@ for col in numeric_df:
               hue = 'Occupation',
               common_norm = False,
               stat = 'density',
+              palette = 'flare',
               multiple = 'stack',
               discrete = True)         
     
