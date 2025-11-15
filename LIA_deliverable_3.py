@@ -82,10 +82,10 @@ for col in categorical_df.columns:
 
 
                               ### Univariate Graphical EDA ###
-
-#### GOTTA REDO THIS PART #####                       
+                    
 for col in numeric_df:
-    sns.displot(data = df,
+    if col != 'Age' and col != 'Daily Steps' and col != 'Person ID':
+        sns.displot(data = df,
                 x= col,
                 hue = 'Gender',
                 multiple = 'dodge',
@@ -93,17 +93,21 @@ for col in numeric_df:
                 kde = True)  
 
 for col  in numeric_df:
-    sns.displot(data = df,
-                x= col,
-                hue = 'Sleep Disorder',
-                kind = 'ecdf')  
+    if col != 'Age' and col != 'Daily Steps' and col != 'Person ID':
+        sns.displot(data = df,
+              x= col,
+              hue = 'Sleep Disorder',
+              kind = 'ecdf')  
     
 for col in numeric_df:
-    sns.displot(data = df,
-                x= col,
-                hue = 'Occupation',
-                multiple = 'stack',
-                discrete = True)         
+    if col != 'Age' and col != 'Daily Steps' and col != 'Person ID':
+        sns.displot(data = df,
+              x= col,
+              hue = 'Occupation',
+              common_norm = False,
+              stat = 'density',
+              multiple = 'stack',
+              discrete = True)         
     
     
 
@@ -132,22 +136,22 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']])
 #a)
 
 #b) Answers question 5
-sns.relplot(data = df,
-            x = 'Quality of Sleep', 
-            y = 'Physical Activity Level',
-            hue = 'BMI Category',
-            size = 'Daily Steps',
-            col = 'Gender')
+#sns.relplot(data = df,
+#            x = 'Quality of Sleep', 
+#            y = 'Physical Activity Level',
+#            hue = 'BMI Category',
+#            size = 'Daily Steps',
+#            col = 'Gender')
 
-plt.figure() # in order not to merge the two plots
+#plt.figure() # in order not to merge the two plots
 
 #c) Answers question 4 (age is the continuity variable here)
-sns.lineplot(data = df,
-             x = 'Age',
-             y = 'Sleep Duration',
-             hue = 'Gender')
+#sns.lineplot(data = df,
+#            x = 'Age',
+#             y = 'Sleep Duration',
+#             hue = 'Gender')
 
-plt.figure()
+#plt.figure()
 
 #d)
 
@@ -157,23 +161,23 @@ plt.figure()
 # 6.2. Visualizing categorical data 
 
 #a) Answers question 4
-sns.catplot(data = df,
-            x = 'Gender',
-            y = 'Sleep Disorder',
-            jitter = True)
+#sns.catplot(data = df,
+#            x = 'Gender',
+#            y = 'Sleep Disorder',
+#            jitter = True)
 
-plt.figure()
+#plt.figure()
 
 #b)
 
 #c) Answers question 4
-sns.catplot(data = df,
-            x = 'Sleep Disorder',
-            y = 'Heart Rate',
-            hue = 'Gender',
-            kind = 'swarm')
+#sns.catplot(data = df,
+#            x = 'Sleep Disorder',
+#            y = 'Heart Rate',
+#            hue = 'Gender',
+#            kind = 'swarm')
 
-plt.figure()
+#plt.figure()
 
 #d)
 
@@ -182,20 +186,20 @@ plt.figure()
 #f)
 
 #g) Answers question 5
-g = sns.catplot(data = df,
-                x = 'Physical Activity Level',
-                y = 'Quality of Sleep',
-                kind = 'violin',
-                inner = None)
+#g = sns.catplot(data = df,
+#                x = 'Physical Activity Level',
+#                y = 'Quality of Sleep',
+#                kind = 'violin',
+#                inner = None)
 
-sns.swarmplot(data = df,
-              x = 'Physical Activity Level',
-              y = 'Quality of Sleep',
-              color = 'k',
-              size = 3,
-              ax = g.ax)
+#sns.swarmplot(data = df,
+#             x = 'Physical Activity Level',
+ #             y = 'Quality of Sleep',
+  #            color = 'k',
+   #           size = 3,
+    #          ax = g.ax)
 
-plt.figure()
+#plt.figure()
 
 #g)
 
@@ -209,12 +213,12 @@ plt.figure()
 #6.3. Visualizing bivariate distributions
 
 #c) Answers Question 5 # Added gender because it looks better with gender
-sns.displot(data = df, 
-            y = 'Quality of Sleep',
-            x = 'Daily Steps',
-            palette = 'flare',
-            hue = 'Gender',
-            kind = 'kde')
+#sns.displot(data = df, 
+ #           y = 'Quality of Sleep',
+  #          x = 'Daily Steps',
+   #         palette = 'flare',
+    #        hue = 'Gender',
+     #       kind = 'kde')
 
 
 
