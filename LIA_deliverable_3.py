@@ -165,7 +165,7 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']], normalize=Tru
 # 6.2. Visualizing categorical data 
 
 #a) Answers question 4
-#sns.catplot(data = df,
+# sns.catplot(data = df,
 #            x = 'Gender',
 #            y = 'Sleep Disorder',
 #            jitter = True)
@@ -173,6 +173,13 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']], normalize=Tru
 #plt.figure()
 
 #b)
+# sns.stripplot(
+#     data=df,
+#     x='Gender',
+#     y='Stress Level',
+#     jitter=False
+# )
+# use of categorical/numerical so it can be easy to read.
 
 #c) Answers question 4
 #sns.catplot(data = df,
@@ -187,7 +194,7 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']], normalize=Tru
 
 #e)
 
-#f)
+#f) 
 
 #g) Answers question 5
 #g = sns.catplot(data = df,
@@ -205,16 +212,64 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']], normalize=Tru
 
 #plt.figure()
 
-#g)
-
 #h)
+# sns.barplot(
+#     data=df,
+#     x='Occupation',
+#     y='Physical Activity Level',
+#     hue='Gender',
+#     errorbar=('ci', 97),
+#     palette='magma'
+# )
+# MAYBE MAKE THE GRAPH LONGER??? 
 
 #i)
+
+# sns.pointplot(
+#     data=df,
+#     x='Physical Activity Level',
+#     y='Quality of Sleep',
+#     hue='Gender',
+#     errorbar=('ci',90),
+#     linestyles='dashed'
+# )
+
 
 #j)
 
 
+# sns.countplot(data=df, 
+#               x='Sleep Disorder', 
+#               hue='Gender',
+#               palette='mako'
+#               )
+
+
 #6.3. Visualizing bivariate distributions
+
+
+#a)
+sns.displot(
+    data=df,
+    x='Sleep Duration',
+    y='Quality of Sleep',
+    kind='hist',
+    bins=(10,10),
+    cbar=True
+)
+
+#b) distribution plot with 2 variables makign use of bivariate density contours with amount of curves and its lowest level adjusted, kernel dens. estimation
+
+# sns.kdeplot(
+#     data=df,
+#     x='Sleep Duration',
+#     y='Quality of Sleep',
+#     hue='Gender',
+#     levels=8,
+#     fill=False
+# )
+
+
 
 #c) Answers Question 5 # Added gender because it looks better with gender
 #sns.displot(data = df, 
