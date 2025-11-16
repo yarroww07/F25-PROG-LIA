@@ -115,19 +115,22 @@ for col in numeric_df:
                            ### Multivariate Non-Graphical EDA ###
                               
 
-# ASK; Are these three crosstabs enough or should i do three without normalize, then one normalize...
-
 # First Relationship: Occupation and Sleep Disorder (with percentages over the total values)
+pd.crosstab(df['Occupation'], df['Sleep Disorder'])
 pd.crosstab(df['Occupation'], df['Sleep Disorder'], normalize=True)
 
 # Second Relationship:
 pd.crosstab(df['BMI Category'], df['Sleep Disorder'])
+pd.crosstab(df['BMI Category'], df['Sleep Disorder'], normalize=True)
 
-# Third Relationship: Gender and Sleep Disorder (with percentages over ROWS only)
+# Third Relationship: Gender and Sleep Disorder (with percentages over ROWS and over total values)
+pd.crosstab(df['Gender'], df['Sleep Disorder'])
 pd.crosstab(df['Gender'], df['Sleep Disorder'], normalize='index')
+pd.crosstab(df['Gender'], df['Sleep Disorder'], normalize=True)
 
 # Three-way frequency table; BMI was added at first, but removed because it did not give a clean look
 pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']])
+pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']], normalize=True)
 
 
                          ### Multivariate Graphical EDA ###
