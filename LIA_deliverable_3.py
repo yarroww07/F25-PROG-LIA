@@ -137,7 +137,9 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']], normalize=Tru
 
 # 6.1. Visualizing statistical relationships
 
-#a)
+# a) Faceted relplot answwering Q1
+sns.relplot(data = df, x = "Stress Level", y = "Sleep Duration", col = "Occupation")
+plt.figure()
 
 #b) Answers question 5
 #sns.relplot(data = df,
@@ -159,7 +161,12 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']], normalize=Tru
 
 #d)
 
-#e)                         
+# e) Linear regression plots answering Q1
+sns.regplot(data = df, x = "Stress Level", y = "Sleep Duration")
+plt.figure()
+
+sns.regplot(data = df, x = "Stress Level", y = "Quality of Sleep")
+plt.figure()                       
                          
                          
 # 6.2. Visualizing categorical data 
@@ -172,7 +179,9 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']], normalize=Tru
 
 #plt.figure()
 
-#b)
+# b) Categorical scatter WITHOUT jitter answering Q6
+sns.stripplot(data = df, x = "Sleep Disorder", y = "Sleep Duration", jitter = False)
+plt.figure()
 
 #c) Answers question 4
 #sns.catplot(data = df,
@@ -183,7 +192,9 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']], normalize=Tru
 
 #plt.figure()
 
-#d)
+# d) Box plot with 3 variables answering Q6
+sns.boxplot(data = df, x = "Sleep Disorder", y = "Sleep Duration", hue = "Gender")
+plt.figure()
 
 #e)
 
@@ -209,9 +220,13 @@ pd.crosstab(df['Occupation'], [df['Gender'],df['Sleep Disorder']], normalize=Tru
 
 #h)
 
-#i)
+# i) Point plot (3 variables, 90% CI, dashed lines) answering Q6
+sns.pointplot(data = df, x = "Age", y = "Sleep Duration", hue = "Sleep Disorder", ci = 90, linestyles = "--")
+plt.figure()
 
-#j)
+# j) Bar plot showing number of observations per category answering Q1
+sns.countplot(data = df, y = "Occupation")
+plt.figure()
 
 
 #6.3. Visualizing bivariate distributions
