@@ -41,15 +41,16 @@ df['BMI Category'] = df['BMI Category'].replace({'Normal Weight':'Normal'})
 #In the BMI category, two categories are used to indicate a BMI in a normal range; Normal and Normal Weight. Since both of them represent the same thing, I merged them into one category: Normal.
 
                                   ### Univariate Non-graphical EDA ###
+# CODED BY: MERIEM HAMZI                                  
 
-numeric_df = df.select_dtypes(include = np.number)
+numeric_df = df.select_dtypes(include = np.number) # This includes only th enumerival variables
 
 print('Numerical Values')
 print('')
 print('')
       
 
-for col in numeric_df.columns:
+for col in numeric_df.columns: # For loop used to not repeat the code multiple time to each variables
     print(col) 
     print('mean:', df[col].mean())
     print('median:', df[col].median())
@@ -60,7 +61,7 @@ for col in numeric_df.columns:
     print('kurtosis:', df[col].kurt())
     print('quartiles',df[col].quantile([0.25, 0.5, 0.75]))
     print('')
-    print('')
+    print('') # This is used to seperated the lines between the outputs in the Ipython console
     
 categorical_df = df.select_dtypes(exclude = np.number) 
 
@@ -82,6 +83,11 @@ for col in categorical_df.columns:
 
 
                               ### Univariate Graphical EDA ###
+#CODED BY: MERIEM HAMZI
+
+#loops were used to facilitate graph generation
+#only 5 of the 7 numerical variables were taken in consideration. Person ID is directly excluded because it is not a variable
+#Graphs were made making sure everying asked for was added. This is why there are only three graphs per variable                              
                     
 for col in numeric_df:
     if col != 'Age' and col != 'Daily Steps' and col != 'Person ID':
@@ -140,17 +146,17 @@ for col in numeric_df:
 sns.relplot(data = df, x = "Stress Level", y = "Sleep Duration", col = "Occupation")
 plt.figure()
 
-#b) Answers question 5
-#sns.relplot(data = df,
-#            x = 'Quality of Sleep', 
-#            y = 'Physical Activity Level',
-#            hue = 'BMI Category',
-#            size = 'Daily Steps',
-#            col = 'Gender')
+#b) Answers question 5, coded by meriem
+sns.relplot(data = df,
+            x = 'Quality of Sleep', 
+            y = 'Physical Activity Level',
+            hue = 'BMI Category',
+            size = 'Daily Steps',
+            col = 'Gender')
 
 #plt.figure() # in order not to merge the two plots
 
-#c) Answers question 4 (age is the continuity variable here)
+#c) Answers question 4 (age is the continuity variable here), coded by meriem
 #sns.lineplot(data = df,
 #            x = 'Age',
 #             y = 'Sleep Duration',
@@ -177,7 +183,7 @@ plt.figure()
                          
 # 6.2. Visualizing categorical data 
 
-#a) Answers question 4
+#a) Answers question 4, by meriem
 # sns.catplot(data = df,
 #            x = 'Gender',
 #            y = 'Sleep Disorder',
@@ -189,7 +195,7 @@ plt.figure()
 sns.stripplot(data = df, x = "Sleep Disorder", y = "Sleep Duration", jitter = False)
 plt.figure()
 
-#c) Answers question 4
+#c) Answers question 4 , by meriem
 #sns.catplot(data = df,
 #            x = 'Sleep Disorder',
 #            y = 'Heart Rate',
@@ -264,21 +270,20 @@ sns.violinplot(
     palette='Set2'
 )
 
+#g) Answers question 5< by meriem
+g = sns.catplot(data = df,
+                 x = 'Physical Activity Level',
+                 y = 'Quality of Sleep',
+                 kind = 'violin',
+                 inner = None)
 
-#%%
-#g) Answers question 5
-#g = sns.catplot(data = df,
-#                x = 'Physical Activity Level',
-#                y = 'Quality of Sleep',
-#                kind = 'violin',
-#                inner = None)
+#This would merge  the two factors together
 
-#sns.swarmplot(data = df,
-#             x = 'Physical Activity Level',
- #             y = 'Quality of Sleep',
-  #            color = 'k',
-   #           size = 3,
-    #          ax = g.ax)
+sns.swarmplot(data = df,
+           x = 'Physical Activity Level',
+           y = 'Quality of Sleep',
+           size = 3,
+           ax = g.ax)
 
 #plt.figure()
 
@@ -352,13 +357,13 @@ sns.kdeplot(
 
 #%%
 
-#c) Answers Question 5 # Added gender because it looks better with gender
-#sns.displot(data = df, 
- #           y = 'Quality of Sleep',
-  #          x = 'Daily Steps',
-   #         palette = 'flare',
-    #        hue = 'Gender',
-     #       kind = 'kde')
+#c) Answers Question 5 # Added gender because it looks better with gender, by meriem
+sns.displot(data = df, 
+             y = 'Quality of Sleep',
+             x = 'Daily Steps',
+             palette = 'flare',
+             hue = 'Gender',
+             kind = 'kde')
 
 
 
