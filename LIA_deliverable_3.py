@@ -148,12 +148,12 @@ sns.relplot(data = df, x = "Stress Level", y = "Sleep Duration", col = "Occupati
 plt.figure()
 
 #b) Answers question 5, coded by meriem
-#sns.relplot(data = df,
-#            x = 'Quality of Sleep', 
-#            y = 'Physical Activity Level',
-#            hue = 'BMI Category',
-#            size = 'Daily Steps',
-#            col = 'Gender')
+sns.relplot(data = df,
+            x = 'Quality of Sleep', 
+            y = 'Physical Activity Level',
+            hue = 'BMI Category',
+            size = 'Daily Steps',
+            col = 'Gender')
 
 #plt.figure() # in order not to merge the two plots
 
@@ -189,7 +189,7 @@ plt.figure()
 sns.stripplot(data = df, x = "Sleep Disorder", y = "Sleep Duration", jitter = False)
 plt.figure()
 
-#c) Answers question , by meriem
+#c) Answers question 4 , by meriem
 #sns.catplot(data = df,
 #            x = 'Sleep Disorder',
 #            y = 'Heart Rate',
